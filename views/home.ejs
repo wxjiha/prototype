@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Welcome to <%=shopData.shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+
+
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/transactions">Transactions</a></li>
+                <li><a href="/users/register">Register</a></li>
+                <% if (isLoggedIn) { %>
+                    <li><a href="/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to <%=shopData.shopName%></h1>
+
+        <% if (isLoggedIn) { %>
+            <p>Hello, <%= username %>!</p>
+        <% } else { %>
+            <p>Welcome, Guest! Please <a href="/login">login</a> or <a href="/register">register</a>.</p>
+        <% } %>
+    </main>
+
+  </body>
+</html>

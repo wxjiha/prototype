@@ -11,7 +11,11 @@ router.post('/login', (req, res) => {
 
     // Perform login authentication (mock example)
     if (username === 'admin' && password === 'password') {
-        res.redirect('/transactions'); // Redirect to transactions on successful login
+        // Save the user session or other logic
+        req.session.isLoggedIn = true;
+
+        // Redirect to home
+        res.redirect('/home');
     } else {
         res.status(401).send('Invalid credentials');
     }
@@ -22,6 +26,20 @@ router.post('/login', (req, res) => {
 router.get('/register', (req, res) => {
     res.render('register'); // Renders register.ejs
 });
+
+router.get('/home', (req, res) => {
+    res.render('home', {
+        isLoggedIn: req.session.isLoggedIn || false,
+        username: req.session.username || null,
+    });
+});
+
+router.get('/', (req, res) => {
+    res.render('login', {
+        isLoggedIn: req.session.isLoggedIn || false,
+    });
+});
+
 
 router.get('/transactions', (req, res) => {
     res.render('transactions'); // Renders transactions.ejs
