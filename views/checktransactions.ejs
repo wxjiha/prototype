@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Check Transactions</title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="menu">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/transactions">Transactions</a></li>
+          <li><a href="/cases/checktransactions">Check Transactions</a></li>
+          <li><a href="/users/register">Register</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-content">
+      <h1 class="page-title">Check Transactions for Fraud</h1>
+
+      <!-- Form for uploading files and entering text -->
+      <form id="fraudCheckForm" class="fraud-check-form" action="/checktransactions" method="POST" enctype="multipart/form-data">
+        <!-- File input -->
+        <div class="form-group">
+          <label for="transactionFile" class="form-label">Upload Transaction File (CSV):</label>
+          <input
+            type="file"
+            id="transactionFile"
+            name="transactionFile"
+            class="form-input"
+            accept=".csv"
+            required
+          />
+        </div>
+
+        <!-- Text input -->
+        <div class="form-group">
+          <label for="transactionText" class="form-label">Enter Transaction Data or any extra information:</label>
+          <textarea
+            id="transactionText"
+            name="transactionText"
+            class="form-textarea"
+            rows="5"
+            placeholder="Enter transaction details here..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="form-button">Check for Fraud</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

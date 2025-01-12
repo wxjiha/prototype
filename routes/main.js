@@ -28,11 +28,33 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/home', (req, res) => {
+    const shopData = {
+        shopName: "Fraudula",
+        items: [
+            { month: "January, 2024"},
+            { month: "February, 2024"},
+            { month: "March, 2024"},
+            { month: "April, 2024"},
+            { month: "May, 2024"},
+            { month: "June, 2024"},
+            { month: "July, 2024"},
+            { month: "August, 2024"},
+            { month: "September, 2024"},
+            { month: "October, 2024"},
+            { month: "November, 2024"},
+            { month: "December, 2024"},
+            { month: "January, 2025"},
+            { month: "February, 2025"},
+        ]
+    };
+
     res.render('home', {
         isLoggedIn: req.session.isLoggedIn || false,
         username: req.session.username || null,
+        shopData: shopData,
     });
 });
+
 
 router.get('/', (req, res) => {
     res.render('login', {
@@ -42,11 +64,25 @@ router.get('/', (req, res) => {
 
 
 router.get('/transactions', (req, res) => {
-    res.render('transactions'); // Renders transactions.ejs
+    const month = req.query.month || "Unknown Month";
+
+    res.render('transactions', {
+        month: month,
+        isLoggedIn: req.session.isLoggedIn || false,
+    });
 });
+
 
 router.get('/flagged-cases', (req, res) => {
     res.render('flaggedcases'); // Renders flaggedcases.ejs
+});
+
+// About route
+router.get('/about', (req, res) => {
+    const shopData = {
+        shopName: "Fraudula",
+    };
+    res.render('about', { shopData: shopData });
 });
 
 module.exports = router;

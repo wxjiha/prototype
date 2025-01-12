@@ -13,24 +13,59 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/transactions">Transactions</a></li>
+                <li><a href="/cases/checktransactions">Check Transactions</a></li>
                 <li><a href="/users/register">Register</a></li>
-                <% if (isLoggedIn) { %>
-                    <li><a href="/logout">Logout</a></li>
-                <% } else { %>
-                    <li><a href="/login">Login</a></li>
-                <% } %>
+                <li><a href="/users/logout">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Welcome to <%=shopData.shopName%></h1>
-
+        <h1>Welcome to <%= shopData.shopName %></h1>
+    
         <% if (isLoggedIn) { %>
-            <p>Hello, <%= username %>!</p>
+            <p>Hello <%= username %>!</p>
         <% } else { %>
             <p>Welcome, Guest! Please <a href="/login">login</a> or <a href="/register">register</a>.</p>
         <% } %>
+    
+        <!-- Search bar -->
+        <div>
+            <input type="text" id="searchInput" placeholder="Search through the months or years..." onkeyup="applySearch()" />
+        </div>
+        
+        <!-- Search results -->
+      <div id="resultsContainer">
+        <% if (shopData && shopData.items) { %>
+          <% shopData.items.forEach(item => { %>
+            <a href="/transactions?month=<%= encodeURIComponent(item.month) %>" class="item" data-name="<%= item.month.toLowerCase() %>">
+              <div>
+                <h3><%= item.month %></h3>
+                <p>Year: <%= item.month.split(', ')[1] %></p>
+              </div>
+            </a>
+          <% }); %>
+        <% } else { %>
+          <p>No items available.</p>
+        <% } %>
+      </div>
     </main>
+
+    <script>
+      function applySearch() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const items = document.querySelectorAll('.item');
+
+        items.forEach(item => {
+          const itemName = item.getAttribute('data-name');
+          if (itemName.includes(searchInput)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+    
 
   </body>
 </html>

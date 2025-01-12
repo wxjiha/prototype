@@ -69,3 +69,131 @@ header ul li a {
 .btn:hover {
     background: #003399;
 }
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.item {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-bar {
+    margin: 20px 0;
+  }
+  
+  #searchInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  #resultsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  body.check-transactions-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light gray background */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    min-height: 100vh; /* Full height for vertical centering */
+    color: #333;
+}
+
+/* Ensure header doesn't interfere with centering */
+.header {
+    width: 100%;
+    background-color: #d1b4a5; /* Matching the header color */
+    padding: 10px 0;
+    box-sizing: border-box;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+/* Add padding to avoid overlap from header */
+.main-content {
+    background: #fff; /* White background for contrast */
+    padding: 20px 30px; /* Add spacing around the content */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 500px; /* Restrict width for readability */
+    width: 100%; /* Full width for smaller screens */
+    text-align: center; /* Center-align text */
+    margin-top: 80px; /* Add margin to compensate for header height */
+}
+
+/* Form styling */
+.fraud-check-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduce spacing between form elements */
+}
+
+/* Form group for spacing */
+.form-group {
+    text-align: left; /* Align labels and inputs to the left */
+    width: 100%;
+}
+
+/* Label styling */
+.form-label {
+    font-size: 14px; /* Adjust label font size for compactness */
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input and textarea styling */
+.form-input,
+.form-textarea {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Restrict width of inputs and textarea */
+    padding: 8px; /* Slightly smaller padding */
+    font-size: 14px; /* Standard text size */
+    border: 1px solid #ddd; /* Light border for clean look */
+    border-radius: 5px; /* Rounded edges */
+    background-color: #f9f9f9; /* Slightly off-white background */
+    box-sizing: border-box; /* Ensure padding doesn’t overflow */
+}
+
+/* Textarea-specific styling */
+.form-textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    height: 80px; /* Smaller default height for textarea */
+}
+
+/* Button styling */
+.form-button {
+    background-color: #4a4e69; /* Modern purple button */
+    color: #fff; /* White text for contrast */
+    border: none;
+    padding: 10px 20px; /* Smaller but consistent button size */
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    max-width: 200px; /* Restrict button width */
+    margin: 0 auto; /* Center-align the button */
+}
+
+.form-button:hover {
+    background-color: #9a8c98; /* Lighter purple on hover */
+}

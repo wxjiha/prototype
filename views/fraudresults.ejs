@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fraud Check Results</title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="menu">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/transactions">Transactions</a></li>
+          <li><a href="/cases/checktransactions">Check Transactions</a></li>
+          <li><a href="/users/register">Register</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Fraud Check Results</h1>
+
+      <!-- Display file data -->
+      <div>
+        <h2>Uploaded File Data</h2>
+        <% if (combinedData.fileData && combinedData.fileData.length) { %>
+          <ul>
+            <% combinedData.fileData.forEach((row, index) => { %>
+              <li><%= JSON.stringify(row) %></li>
+            <% }); %>
+          </ul>
+        <% } else { %>
+          <p>No file data available.</p>
+        <% } %>
+      </div>
+
+      <!-- Display text data -->
+      <div>
+        <h2>Entered Text Data</h2>
+        <% if (combinedData.textData) { %>
+          <pre><%= JSON.stringify(combinedData.textData, null, 2) %></pre>
+        <% } else { %>
+          <p>No text data provided.</p>
+        <% } %>
+      </div>
+    </main>
+  </body>
+</html>

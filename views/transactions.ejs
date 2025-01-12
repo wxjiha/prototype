@@ -1,24 +1,27 @@
+
 <!doctype html>
 <html>
   <head>
-    <title>Search <%=shopData.shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
-    <nav>
-      <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/transactions">Transactions</a></li>
-        <li><a href="/users/register">Register</a></li>
-        <li><a href="/users/logout">Logout</a></li>
-      </ul>
-  </nav>
+    <title>Transactions</title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1>Search <%=shopData.shopName%></h1>
-    <form action="search_result" method="GET">
-      <label for="search_box">What kind of transaction are you looking for?</label>
-      <input id="search_box" type="text" name="search_text">
-      <input type="submit" value="Search" >
-    </form>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/transactions">Transactions</a></li>
+                <li><a href="/cases/checktransactions">Check Transactions</a></li>
+                <li><a href="/users/register">Register</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Transaction Details</h1>
+        <p><strong>Selected Month:</strong> <%= month %></p>
+        <!-- Additional transaction details can go here -->
+    </main>
   </body>
 </html>

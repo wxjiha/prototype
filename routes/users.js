@@ -61,13 +61,13 @@ router.post('/loggedin', [
 });
 
 
-router.get('/logout', redirectLogin, (req, res) => {
+router.get('/logout', redirectLogin,(req, res) => {
     req.session.destroy((err) => {
-        if (err) {
-            console.error(err);
-            return res.redirect('/home'); // Redirect to home if there's an error
-        }
-        res.render('logout', { message: "You've successfully logged out. Redirecting to the home page..." });
+      if (err) {
+        console.error(err);
+        return res.redirect('/usr/448/');
+      }
+      res.render('logout', {message:"You've successfully logged out, you are being redirected to the home page"}); 
     });
 });
 
